@@ -17,13 +17,13 @@
         <thead>
             <tr>
                 <th>
-                    Name
+                    @Html.DisplayNameFor(item => item.Name)
                 </th>
                 <th>
-                    Category
+                    @Html.DisplayNameFor(item => item.CategoryName)
                 </th>
                 <th>
-                    Price
+                    @Html.DisplayNameFor(item => item.Price)
                 </th>
             </tr>
         </thead>
@@ -32,13 +32,13 @@
             {
                 <tr>
                     <td>
-                        @item.Name
+                        @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
-                        @item.CategoryName
+                        @Html.DisplayFor(modelItem => item.CategoryName)
                     </td>
                     <td>
-                        @((item.Price).ToString("c"))
+                        @Html.DisplayFor(modelItem => item.Price)
                     </td>
                     <td>
                        <a asp-action="ProductUpdate" class="btn btn-success" asp-route-id="@item.Id">

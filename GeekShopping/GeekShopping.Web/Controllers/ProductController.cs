@@ -13,13 +13,15 @@ namespace GeekShopping.Web.Controllers
             _productService = productService ?? throw new ArgumentNullException(nameof(productService));
         }
 
+        [HttpGet]
         public async Task<IActionResult> ProductIndex()
         {
             var products = await _productService.FindAllProducts();
             return View(products);
         }
 
-        public async Task<IActionResult> ProductCreate()
+        [HttpGet]
+        public IActionResult ProductCreate()
         {
             return View();
         }
@@ -39,6 +41,7 @@ namespace GeekShopping.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public async Task<IActionResult> ProductUpdate(long id)
         {
             var model = await _productService.FindProductById(id);
@@ -64,6 +67,7 @@ namespace GeekShopping.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public async Task<IActionResult> ProductDelete(int id)
         {
             var model = await _productService.FindProductById(id);

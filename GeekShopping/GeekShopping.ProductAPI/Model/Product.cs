@@ -14,7 +14,8 @@ namespace GeekShopping.ProductAPI.Model
 
         [Column("price")]
         [Required]
-        [Range(1, 10000)]
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:F2}")]
         public decimal Price { get; set; }
 
         [Column("description")]

@@ -19,23 +19,23 @@ namespace GeekShopping.Web.Utils
             return JsonSerializer.Deserialize<T>(dataAsString,
                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
         }
-        public static Task<HttpResponseMessage> PostAsJson<T>(this HttpClient httpClient,
+        public static async Task<HttpResponseMessage> PostAsJson<T>(this HttpClient httpClient,
             string url,
             T data)
         {
             var dataAsString = JsonSerializer.Serialize(data);
             var content = new StringContent(dataAsString);
             content.Headers.ContentType = contentType;
-            return httpClient.PostAsync(url,content);
+            return await httpClient.PostAsync(url,content);
         }
-        public static Task<HttpResponseMessage> PutAsJson<T>(this HttpClient httpClient,
+        public static async Task<HttpResponseMessage> PutAsJson<T>(this HttpClient httpClient,
             string url,
             T data)
         {
             var dataAsString = JsonSerializer.Serialize(data);
             var content = new StringContent(dataAsString);
             content.Headers.ContentType = contentType;
-            return httpClient.PutAsync(url, content);
+            return await httpClient.PutAsync(url, content);
         }
     }
 }
