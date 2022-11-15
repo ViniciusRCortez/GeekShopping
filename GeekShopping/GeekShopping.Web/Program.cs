@@ -1,5 +1,7 @@
 using GeekShopping.Web.Services;
 using GeekShopping.Web.Services.IServices;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,5 +28,15 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//var defaultCulture = new CultureInfo("pt-BR");
+var cultureInfo = new CultureInfo("pt-BR");
+cultureInfo.NumberFormat.NumberDecimalSeparator = ".";
+cultureInfo.NumberFormat.CurrencyDecimalSeparator = ".";
+cultureInfo.NumberFormat.CurrencyGroupSeparator = ",";
+cultureInfo.NumberFormat.NumberGroupSeparator = ",";
+CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+
 
 app.Run();

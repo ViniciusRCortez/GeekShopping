@@ -1,6 +1,7 @@
 ﻿using GeekShopping.Web.Models;
 using GeekShopping.Web.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace GeekShopping.Web.Controllers
 {
@@ -46,7 +47,7 @@ namespace GeekShopping.Web.Controllers
         {
             var model = await _productService.FindProductById(id);
             if (model != null)
-            {
+            {                
                 return View(model);
             }
             return View();

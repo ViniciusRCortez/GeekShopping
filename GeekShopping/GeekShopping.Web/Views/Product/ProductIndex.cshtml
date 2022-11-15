@@ -38,7 +38,7 @@
                         @Html.DisplayFor(modelItem => item.CategoryName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Price)
+                        @((item.Price).ToString("c").Replace(".", ","))
                     </td>
                     <td>
                        <a asp-action="ProductUpdate" class="btn btn-success" asp-route-id="@item.Id">

@@ -17,8 +17,7 @@ namespace GeekShopping.Web.Models
         [Range(1.00, 10000.00)]
         [Display(Name = "Price")]
         [DataType(DataType.Currency)]
-        [DisplayFormat(DataFormatString = "{0:F2}")]
-        public decimal Price { get; set; }
+        public decimal Price { get; set; }        
 
         [StringLength(500)]
         [Display(Name = "Description")]
