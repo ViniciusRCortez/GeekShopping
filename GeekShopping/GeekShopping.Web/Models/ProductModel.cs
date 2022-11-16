@@ -21,14 +21,14 @@ namespace GeekShopping.Web.Models
 
         [StringLength(500)]
         [Display(Name = "Description")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [StringLength(50)]
         [Display(Name = "Category Name")]
-        public string CategoryName { get; set; }
+        public string? CategoryName { get; set; }
 
         [StringLength(300)]
         [Display(Name = "Image URL")]
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
     }
 }
